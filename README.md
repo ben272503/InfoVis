@@ -8,6 +8,6 @@ things that i could improve:
 - the last graph on the France special page
 - zoom on graphs
 
-things that i could add: 
--export to picture
--a way to selecta country or 2 to be highlighted in the mess of 3D objects
+things that I could add: 
+- export to picture
+- a way to selecta country or 2 to be highlighted in the mess of 3D objects
