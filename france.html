@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>France Special – World Wine 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylefrance.css" />
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <a href="index.html" class="back-button">⟵ Back to Home</a>
+
+  <header>
+    <h1>World Wide / World Wine 2025</h1>
+    <h2>🇫🇷 France Special 🇫🇷</h2>
+  </header>
+
+    <div id="yearSliderContainer">
+        <label for="yearSlider">Select a year:</label>
+        <input type="range" id="yearSlider" min="1995" max="2024" step="1" value="2020">
+        <span id="selectedYear">2020</span>
+    </div>
+
+  <main class="france-content">
+  <section class="chart-block">
+    <canvas id="franceChart1" width="600" height="300"></canvas>
+  </section>
+  <section class="chart-block">
+    <canvas id="franceChart2" width="600" height="300"></canvas>
+  </section>
+  <section class="chart-block">
+    <div class="legend-years">
+      <div><span class="color-box" style="background-image: url('assets/bois-texture.jpg');"></span> 2019</div>
+      <div><span class="color-box" style="background-color:#f5c542;"></span> 2022</div>
+    </div>
+  
+    <div id="franceChart3Container">
+      <canvas id="franceChart3" width="600" height="300"></canvas>
+      <div id="franceChart3Legend" class="legend-raisin"></div>
+    </div>
+  </section>
+  <section class="chart-block">
+    <div class="glass-section">
+    <div class="glass-wrapper">
+      <svg class="wineglass" viewBox="1 0 20 40">
+        <use href="assets/wineglass.svg#形状" />x
+        <clipPath id="clip-female">
+          <path id="wave-female" />
+        </clipPath>
+        <rect width="20" height="40" class="wine-fill white-wine" clip-path="url(#clip-female)" />
+      </svg>
+      <div class="label">Women</div>
+      <div class="percent" id="label-female">0%</div>
+    </div>
+
+    <div class="glass-wrapper">
+      <svg class="wineglass" viewBox="1 0 20 40">
+        <use href="assets/wineglass.svg#形状" />
+        <clipPath id="clip-male">
+          <path id="wave-male" />
+        </clipPath>
+        <rect x="0" y="0" width="200" height="400" class="wine-fill red-wine" clip-path="url(#clip-male)" />
+
+      </svg>
+      <div class="label">Men</div>
+      <div class="percent" id="label-male">0%</div>
+    </div>
+  </div>
+  </section>
+  
+
+<div class="controls">
+    <input type="range" min="1980" max="2015" value="2010" id="yearSlider2" />
+    <p>Year : <span id="yearLabel2">2010</span></p>
+</div>
+<audio id="glouSound" src="assets/glouglou.mp3" preload="auto"></audio>
+</main>
+
+<img src="assets/camembert.jpg" alt="Camembert" class="side-image left" />
+<img src="assets/grappes.jpg" alt="Grappe de raisin" class="side-image right" />
+<div id="smoke-launcher-left" class="smoke-launcher"></div>
+<div id="smoke-launcher-right" class="smoke-launcher"></div>
+
+
+<img id="easter-egg-img" src="assets/manif.jpeg" style="display: none;" />
+
+
+  <script src="france.js"></script>
+  <script>
+  let sequence = '';
+  const triggerWord = 'france';
+
+  window.addEventListener('keydown', (event) => {
+    sequence += event.key.toLowerCase();
+    if (sequence.length > triggerWord.length) {
+      sequence = sequence.slice(-triggerWord.length);
+    }
+
+    if (sequence === triggerWord) {
+      const img = document.getElementById("easter-egg-img");
+      img.style.display = "block";
+      img.style.opacity = "1";
+      img.style.animation = "fadeIn 1s ease-in-out forwards";
+
+      launchSmoke("smoke-launcher-left");
+      launchSmoke("smoke-launcher-right");
+      sequence = '';
+    }
+  });
+
+  // Clique pour refermer
+  document.getElementById("easter-egg-img").addEventListener("click", function () {
+    this.style.opacity = "0";
+    setTimeout(() => this.style.display = "none", 1000);
+  });
+
+  function launchSmoke(sideId) {
+  const launcher = document.getElementById(sideId);
+  let count = 0;
+  const interval = setInterval(() => {
+    const puff = document.createElement("div");
+    puff.classList.add("smoke-puff");
+
+    // Génère un déplacement aléatoire vers le haut + côté
+    const dx = (Math.random() * 100 - 50) + "px";
+    const dy = (Math.random() * -120 - 80) + "px";
+
+    puff.style.setProperty('--dx', dx);
+    puff.style.setProperty('--dy', dy);
+    puff.style.left = "0";
+    puff.style.top = "0";
+
+    launcher.appendChild(puff);
+
+    // Nettoyage après animation
+    setTimeout(() => puff.remove(), 1600);
+
+    count++;
+    if (count > 20) clearInterval(interval); // stop après ~4 secondes
+  }, 200);
+}
+</script>
+<script src="graph34.js"></script>
+
+
+
+
+</body>
+</html>

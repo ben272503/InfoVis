@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wine World Orb</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/"
+  }
+}
+</script>
+
+</head>
+<body>
+  <div id="layout">
+    <div class="sidebar">
+    <h2>🍷filter selection</h2>
+
+    <div class="filters-panel" id="filtersPanel">
+      <div class="checkbox-controls">
+          <button id="activateAll">Activate all</button>
+          <button id="deactivateAll">Desactivate all</button>
+      </div>
+
+          <hr class="checkbox-separator" />
+
+          <div id="country-checkboxes"></div>
+
+          <!-- D'autres filtres pourront venir ici -->
+          <label><input type="checkbox" id="toggleDividers" checked> Continent Separators</label>
+
+          <hr>
+          <div id="imageToggles">
+            <label><input type="checkbox" data-img="img1" unchecked> 📊 Flux graphs</label>
+            <label><input type="checkbox" id="toggleBackground"> Show global consumption</label>
+          </div>
+          <hr>
+          <label for="fluxSelector">Mod :</label>
+          <select id="fluxSelector">
+              <option value="Consumption">Consumption</option>
+              <option value="Imports">Imports</option>
+              <option value="Exports">Exports</option>
+              <option value="Production">Production</option>
+          </select>
+
+           <a class="france-button" href="france.html">🇫🇷 More about France</a>
+      </div>
+      
+      <button id="toggleFilters" class="toggle-button">👁️ Show filters-panel</button>
+      </div>
+
+    <canvas id="wineCanvas"></canvas>
+
+
+  </div>
+    <div id="legendPanel">
+  <h3>Legend</h3>
+  <ul id="legendList"></ul>
+</div>
+
+
+  <div class="slider-container">
+    <label for="yearSlider">Year : <span id="yearLabel">2010</span></label>
+    <input type="range" id="yearSlider" min="2000" max="2023" step="1" value="2020">
+  </div>
+
+  <div id="floating-legend">
+    <h3>🌍 Legend 🌍</h3>
+    <div><span class="dot" style="background:#8e44ad"></span> Consumption</div>
+    <div><span class="dot" style="background:#27ae60"></span> Imports</div>
+    <div><span class="dot" style="background:#2980b9"></span> Exports</div>
+    <div><span class="dot" style="background:#e67e22"></span> Production</div>
+    <div><span class="bar"></span> Continents separators</div>
+  </div>
+
+  <div class="floating-image hidden" id="img1"><img src="assets/global evolution wine.png" alt="Graph 1"></div>
+  
+  <script type="module" src="app.js"></script>
+</body>
+</html>

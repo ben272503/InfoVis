@@ -1,0 +1,17 @@
+ajouter un filtre pour voire un pays par rapport aux autres
+
+faire le truc spécial france
+
+ajouter des mesures, des graduations, un moyen de cliquer sur une sphère et qu'elle grandisse facon loupe.
+
+
+
+
+'Production': 'rgb(221, 170, 76)',
+    'Consumption': 'rgba(153, 102, 255, 1)',
+    'Exports': 'rgba(54, 162, 235, 1)',
+    'Imports': 'rgb(79, 204, 99)'
+
+ctx.strokeStyle = 'rgb(7, 23, 173)';
+
+des raisins ou des cepes de 0 à 10. des cepes du jeune plant au vieux tire bouchon

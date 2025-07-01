@@ -1,0 +1,265 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f0e6;
+  color: #222;
+  text-align: center;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  background: #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-top: 60px;
+}
+
+header h2 {
+  font-size: 1.4rem;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.france-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  justify-items: center;
+}
+
+
+.chart-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* horizontal centering */
+  align-items: center;      /* vertical centering */
+  min-height: 300px;        /* adjust as needed */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.chart-block canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#yearSliderContainer {
+  text-align: center;
+  margin: 20px auto 40px;
+  font-weight: bold;
+}
+#yearSlider {
+  width: 300px;
+  margin: 10px 20px;
+}
+
+/**/
+.side-image {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12%;
+  height: auto;
+  z-index: 2;
+  opacity: 0.9;
+  pointer-events: none; /* pour éviter de bloquer les clics */
+}
+
+.side-image.left {
+  left: 0;
+  margin-left: 30px;
+  border-radius: 10%;
+}
+
+.side-image.right {
+  right: 0;
+  margin-right: 30px;
+  border-radius: 10%;
+}
+
+/* Image avec fondu */
+#easter-egg-img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.smoke-launcher {
+  position: fixed;
+  top: 55%;
+  width: 0;
+  height: 0;
+  z-index: 1001;
+  pointer-events: none;
+  overflow: visible;
+}
+
+#smoke-launcher-left {
+  left: 30%;
+  top: 30%
+}
+#smoke-launcher-right {
+  left: 80%;
+}
+
+.smoke-puff {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(rgba(255, 0, 0, 0.7), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: puff 1.5s forwards;
+  filter: blur(4px);
+}
+
+@keyframes puff {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1.8);
+    opacity: 0;
+  }
+}
+
+#franceChart3Container {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 40px 20px 0 15px;
+  height: 400px; /* ✅ Ajuste selon ta page */
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+}
+
+#franceChart3Legend {
+  margin-top: 20px;
+}
+
+#franceChart3Container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/feuille.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+canvas#franceChart3 {
+  position: relative;
+  z-index: 1;
+}
+
+.legend-raisin {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-raisin-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #333;
+}
+
+.legend-raisin-item img {
+  height: 24px;
+  margin-right: 8px;
+}
+
+.legend-years {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+
+.glass-section {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 2rem;
+}
+
+.glass-wrapper {
+  position: relative;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wineglass {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.percent {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.wine-fill {
+  transition: all 0.8s ease-in-out;
+}
+
+.red-wine {
+  fill: rgba(140, 0, 0, 0.75);
+}
+
+.white-wine {
+  fill: rgba(255, 230, 100, 0.75);
+}
+
+.label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.controls {
+  margin-top: 2rem;
+  margin-left: 90%;
+}
