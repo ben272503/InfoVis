@@ -11,3 +11,7 @@ things that i could improve:
 things that I could add: 
 - export to picture
 - a way to selecta country or 2 to be highlighted in the mess of 3D objects
+
+
+Easter egg: 
+-typing 'france' on the windows 'france special' show a demonstration.
