@@ -1,5 +1,7 @@
 # InfoVis
 
+page availaible at : https://ben272503.github.io/InfoVis/
+
 inspiration to finish the last graph: https://codepen.io/bybelov/pen/MoXVLW
 
 things that i could improve: 
